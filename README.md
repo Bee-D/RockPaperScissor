@@ -1,2 +1,2 @@
 # RockPaperScissor
-# Only javascript and I will add style later
+# I will add style later 
