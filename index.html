@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Rock Paper Scissor</h1>
-   <button type="button" onclick="game()">Play Game</button> 
-   <script src="game.js"></script>
+    <main class="game-board">
+        <h1>Let's Play!</h1> 
+        <div class="game-icon">
+            <i class="fa-thin fa-hand fa-rotate-90 fa-2xs"></i>
+        </div>
+        <button class="play">Play</button>
+        <div class="game-record">
+            <div class="player">You : <span class="player-win"></span></div>
+            <p>Vs</p>
+            <div class="computer">Computer : <span class="computer-win"></span></div>
+        </div>
+    </main>
+    <script src="game.js"></script>
 </body>
 </html>
