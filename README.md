@@ -1,2 +1,3 @@
 # RockPaperScissor
-# I will add style later 
+
+Simple game using html, css and js (for odin project).
