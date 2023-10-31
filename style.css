@@ -62,23 +62,49 @@ body {
 
 .game-icon {
     width: 25rem;
-    height: 25rem;
-    background-color: rebeccapurple;
+    height: 15rem;
 }
 
 .game-record {
     display: flex;
     flex-flow: row;
-    gap: 2rem;
+    gap: 3rem;
     justify-content: space-around;
     align-items: center;
     border: .1rem solid grey;
-    padding: .3rem 1.5rem .3rem 1rem;
+    padding: .3rem 2rem .3rem 2rem;
     border-radius: 1rem;
 }
 
-.play {
-    padding: 0 1.7rem;
-    border-radius: 2rem;
+
+.game-icon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hand {
+    width: 6rem;
+    height: 6rem;
+}
+
+.left-hand {
+    transform: rotate(90deg);
+}
+
+.right-hand {
+    transform: rotate(270deg) scaleX(-1);
+}
+
+.three-hands-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    gap: 1.5rem;
+}
+
+.three-hands-button img:hover {
     cursor: pointer;
 }
