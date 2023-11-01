@@ -1,68 +1,79 @@
-// get computer choise
-let RPS_TABLE = ['rock', 'paper', 'scissor']
-let playerWin = 0
-let playerLost = 0
-let draw = 0
-let computerWin = 0
+let RPS_TABLE = ['scissor', 'paper', 'rock']; // To navigate what string are we using 
+const IMAGES_SOURCES = [
+    './sources/images/hand-scissor.png',
+    './sources/images/hand-paper.png',
+    './sources/images/hand-rock.png',
+];
+let playerChoosenInd = 0; //To provide RPS_TABLE 
+let computerChoosenInd = 0; //To provide RPS_TABLE
+let gameRound = 0;
+let playerMarks = 0;
+let computerMarks = 0;
+let leftHand = document.querySelector('#left-hand');
+let rightHand = document.querySelector('#right-hand');
+let handButtons = document.querySelectorAll('.hand-buttons'); // Array of buttons to shorten the code
+
 function getComputerChoise() {
-    return RPS_TABLE[Math.floor(Math.random() * RPS_TABLE.length)]
-}
-// play round
-function playRound(playerSelection, computerSelection){
-// get player choise 
-    playerSelection = prompt(`Choose one from Rock, Paper and Scissor`).toLowerCase()  
-    computerSelection = getComputerChoise()
-    if (playerSelection === 'rock') {
-        if (computerSelection === 'paper') {
-            alert('You Lose!')
-            computerWin++
-            playerLost++
-        } else if(computerSelection === 'scissor'){
-            alert('You Win!')
-            playerWin++
-        } else {
-            alert('Draw!')
-            draw++
-        }
-    } else if (playerSelection === 'paper') {
-        if (computerSelection === 'rock') {
-            alert('You Win!')
-            playerWin++
-        } else if(computerSelection === 'scissor'){
-            alert('You Lose!')
-            computerWin++
-            playerLost++
-        } else {
-            alert('Draw!')
-            draw++
-        }
-    } else {
-        if (computerSelection === 'rock') {
-            alert('You Lose!')
-            computerWin++
-            playerLost++
-        } else if (computerSelection === 'paper') {
-            alert('You Win!')
-            playerWin++
-        } else {
-            alert('Draw!')
-            draw++
-        }
-    }
-}
-// 5round to play
-function game(round=5) {
-    alert(`let's play ${round} rounds!`)
-    for (let i = 0; i < round; i++){
-        playRound()
-    }
-    if (playerWin > computerWin) {
-        alert(`Congrats! You Win ${playerWin} round | Lost ${playerLost} round | Draw ${draw} round.`)
-    } else if (playerWin < computerWin) {
-        alert(`Ohh! You lost ${playerLost} round | Win ${playerWin} round | Draw ${draw} round.`)
-    } else {
-        alert(`Hah, Draw.`)
-    }
+    computerChoosenInd = Math.floor(Math.random() * RPS_TABLE.length);
+    rightHand.src = IMAGES_SOURCES[computerChoosenInd];
 }
 
-// announce the winner
+function playRound() {
+
+    let round = document.querySelector('.game-round'); // span tag for game round
+    let playerScore = document.querySelector('.player-score'); // span tag for player score
+    let computerScore = document.querySelector('.computer-score'); // span tag for computer score
+    let gameResult = document.querySelector('.game-result'); // Game results for playing 5 rounds
+
+    handButtons.forEach((eachVal, ind) => {
+        eachVal.addEventListener('click', () => {
+            if(eachVal){
+                leftHand.src = IMAGES_SOURCES[ind];
+                playerChoosenInd = ind;
+                getComputerChoise();
+                round.textContent = `${++gameRound}`
+            }
+            if(gameRound <= 5){
+                if(playerChoosenInd !== computerChoosenInd){
+                    if(RPS_TABLE[playerChoosenInd] === 'rock') {
+                        if(RPS_TABLE[computerChoosenInd] === 'paper'){
+                            computerMarks++;
+                            computerScore.textContent = computerMarks;
+                        } else {
+                            playerMarks++;
+                            playerScore.textContent = playerMarks;
+                        }
+                    } else if(RPS_TABLE[playerChoosenInd] === 'paper'){
+                        if(RPS_TABLE[computerChoosenInd] === 'rock') {
+                            playerMarks++;
+                            playerScore.textContent = playerMarks;
+                        } else {
+                            computerMarks++;
+                            computerScore.textContent = computerMarks;
+                        }
+                    } else {
+                        if(RPS_TABLE[computerChoosenInd] === 'rock') {
+                            computerMarks++;
+                            computerScore.textContent = computerMarks;
+                        } else {
+                            playerMarks++;
+                            playerScore.textContent = playerMarks;
+                        }
+                    }
+                }               
+            } else {
+                if(playerMarks !== computerMarks){
+                    if(playerMarks > computerMarks){
+                        gameResult.textContent = 'You Win!';
+                    } else {
+                        gameResult.textContent = 'You Lose!';
+                    }
+                } else {
+                    gameResult.textContent = 'Tie'
+                }
+            }
+        })
+    })
+}
+
+playRound()

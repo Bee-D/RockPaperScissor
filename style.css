@@ -101,12 +101,25 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 20rem;
+    gap: .5rem;
+}
+
+.three-hands-button p {
+    background-color: lightgray;
+    border-radius: 50%;
 }
 
 .three-hands-button img:hover {
     cursor: pointer;
+    background-color: rgb(180, 171, 171);
+    border-radius: 50%;
 } 
 
 .three-hands-button img {
     min-height: 100%;
+}
+
+.reload-button {
+    border-radius: 2rem;
+    padding: .3rem 1rem;
 }
