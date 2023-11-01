@@ -84,27 +84,30 @@ body {
 }
 
 .hand {
-    width: 6rem;
-    height: 6rem;
+    width: 12rem;
+    height: 12rem;
 }
 
 .left-hand {
-    transform: rotate(90deg);
+    transform: rotate(0deg);
 }
 
 .right-hand {
-    transform: rotate(270deg) scaleX(-1);
+    transform: rotate(0deg) scaleX(-1);
 }
 
 .three-hands-button {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    width: 3rem;
-    height: 3rem;
-    gap: 1.5rem;
+    width: 20rem;
+    margin: 0 0 2rem 0;
 }
 
 .three-hands-button img:hover {
     cursor: pointer;
+} 
+
+.three-hands-button img {
+    min-height: 100%;
 }

@@ -9,24 +9,30 @@
 </head>
 <body>
     <main class="game-board">
-        <h1>Let's Play!</h1> 
+        <h1>Rock Paper Scissor</h1> 
         <div class="game-icon">
             <p class="hand left-hand">
-                <img src="./sources/images/hand-rock-grey.svg"  alt="">
+                <img src="./sources/images/hand-rock.png"  alt="">
             </p>
             <p class="hand right-hand">
-                <img src="./sources/images/hand-rock-grey.svg" alt="">
+                <img src="./sources/images/hand-rock.png" alt="">
             </p>
         </div>
         <div class="three-hands-button">
-           <img src="sources/images/hand-scissors-grey.svg" alt=""> 
-           <img src="sources/images/hand-paper-grey.svg" alt="">
-           <img src="sources/images/hand-rock-grey.svg" alt="">
+            <p class="hand-scissor">
+                <img src="sources/images/hand-scissor.png" alt=""> 
+            </p>
+            <p class="hand-paper">
+                <img src="sources/images/hand-paper.png" alt="">
+            </p>
+            <p class="hand-rock">
+                <img src="sources/images/hand-rock.png" alt="">
+            </p>
         </div>
         <div class="game-record">
-            <div class="player">You : <span class="player-win"></span></div>
+            <div class="player">You : <span class="player-score">0</span></div>
             <p>Vs</p>
-            <div class="computer">Computer : <span class="computer-win"></span></div>
+            <div class="computer">Computer : <span class="computer-score">0</span></div>
         </div>
     </main>
     <script src="game.js"></script>
